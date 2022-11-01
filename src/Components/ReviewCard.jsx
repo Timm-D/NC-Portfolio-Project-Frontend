@@ -3,17 +3,17 @@ import {useEffect, useState} from "react";
 
 const ReviewCard = (props) => {
     const {review} = props; 
-    const [loading, setLoading] = useState(true);
-
-
-    useEffect(() => {
-        setLoading(false);
-    }, []);
-
-
-    if(loading) {
-        return <p>Loading...</p>
-    } else {
-        return 
-    }
+   
+    return (
+        <>
+        <h3>{review.title}</h3>
+        <p>{review.review_body}</p>
+    
+        </>
+    )
+   //comments etc
 }
+
+export default ReviewCard
+
+
