@@ -6,12 +6,16 @@ const ReviewCard = (props) => {
    
     return (
         <>
+    
         <h3>{review.title}</h3>
+        <img className="reviewListTitleImage" src={review.review_img_url} alt={review.title}/>
         <p>{review.review_body}</p>
+        <p>Votes: {review.votes}</p>
+        <p>No.Comments: {review.comment_count}</p>
     
         </>
     )
-   //comments etc
+   
 }
 
 export default ReviewCard
