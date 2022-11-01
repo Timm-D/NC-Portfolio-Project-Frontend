@@ -7,11 +7,11 @@ const ReviewCard = (props) => {
     return (
         <>
     
-        <h3>{review.title}</h3>
+        <h4 className="reviewTitle"> {review.title}</h4>
         <img className="reviewListTitleImage" src={review.review_img_url} alt={review.title}/>
-        <p>{review.review_body}</p>
-        <p>Votes: {review.votes}</p>
-        <p>No.Comments: {review.comment_count}</p>
+        <p className="reviewBody">{review.review_body}</p>
+        <p className="votes">Votes: {review.votes}</p>
+        <p className="commentCount">No.Comments: {review.comment_count}</p>
     
         </>
     )

@@ -37,10 +37,30 @@
   }
 }
 
+
+
+
+.reviewTitle {
+
+}
+
 .reviewListTitleImage {
   border-radius: 15px;
   background-position: center;
   padding: 20px;
   width: 200px;
-  height: 150px;
+  max-width: 100%;
+  height: auto;
+}
+
+.reviewBody {
+
+}
+
+.votes{
+
+}
+
+.commentCount {
+  
 }
