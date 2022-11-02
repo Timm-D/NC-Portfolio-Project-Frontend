@@ -4,8 +4,14 @@ const baseURL = axios.create({
   baseURL: "https://tims-board-games-api.herokuapp.com/api/",
 });
 
-export const getAllReviews = () => {
-  return baseURL.get(`/reviews`).then((res) => {
+export const getAllReviews = (category) => {
+  let path;
+  if (category === "reviews") {
+    path = ""
+  } else {
+    path = `?category${category}`
+  }
+  return baseURL.get(`/reviews${path}`).then((res) => {
     return res.data.reviews
   });
 };
