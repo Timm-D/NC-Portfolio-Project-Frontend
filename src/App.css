@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+
+.reviewTitle {
+
+}
+
+.reviewListTitleImage {
+  border-radius: 15px;
+  background-position: center;
+  padding: 20px;
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+}
+
+.reviewBody {
+
+}
+
+.votes{
+
+}
+
+.commentCount {
+  
+}
