@@ -7,11 +7,17 @@ const baseURL = axios.create({
 export const getAllReviews = (category) => {
   let path;
   if (category === "reviews") {
-    path = ""
+    path = "";
   } else {
-    path = `?category${category}`
+    path = `?category${category}`;
   }
   return baseURL.get(`/reviews${path}`).then((res) => {
-    return res.data.reviews
+    return res.data.reviews;
+  });
+};
+
+export const getAllCategories = () => {
+  return baseURL.get("/categories").then((res) => {
+    return res.data.categories;
   });
 };
