@@ -5,7 +5,6 @@ import ReviewCard from "./ReviewCard";
 
 const ReviewList = (props) => {
   const { reviews, setReviews } = props;
-  console.log(reviews)
   const [loading, SetLoading] = useState(true);
 
   useEffect(() => {
