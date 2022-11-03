@@ -24,9 +24,13 @@ const CategorySelector = (props) => {
     });
   };
 
+  const makeFirstCap = (str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   return (
     <div>
-      <h4>{selectedCategory}</h4>
+      <h4>{makeFirstCap(selectedCategory)}</h4>
       <AsyncSelect
         cacheOptions
         className="categoryDropDown"
