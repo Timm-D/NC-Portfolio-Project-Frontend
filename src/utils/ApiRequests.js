@@ -5,13 +5,11 @@ export const baseURL = axios.create({
 });
 
 export const getAllReviews = (category) => {
-  let path;
-  if (category === "reviews" || category === undefined ) {
-    path = "";
-  } else {
-    path = `?category=${category}`;
+  let path = "/reviews";
+  if (category.length !== 0) {
+    path += `?category=${category}`;
   }
-  return baseURL.get(`/reviews${path}`).then((res) => {
+  return baseURL.get(`${path}`).then((res) => {
     return res.data.reviews;
   });
 };

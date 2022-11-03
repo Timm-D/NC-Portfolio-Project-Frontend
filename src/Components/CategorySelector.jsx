@@ -4,25 +4,22 @@ import AsyncSelect from "react-select/async";
 import ReviewList from "./ReviewList";
 import Dropdown from "../utils/DropdownRequest";
 
-
-
-const CategorySelector = () => {
-  const [inputValue, setCategory] = useState("");
-  const [selectedValue, setSelectedCategory] = useState(null);
+const CategorySelector = (props) => {
+  const [category, setCategory] = useState("");
+  const { selectedCategory, setSelectedCategory } = props;
+  const { setReviews } = props;
 
   const handleInputChange = (value) => {
     setCategory(value);
   };
 
   const handleChange = (value) => {
-    setSelectedCategory(value);
+    setSelectedCategory(value.slug);
   };
-  
-  
+
   const fetchData = () => {
     return Dropdown.get(`/categories`).then((result) => {
       const res = result.data.categories;
-      console.log(res)
       return res;
     });
   };
@@ -33,9 +30,9 @@ const CategorySelector = () => {
         className="categoryDropDown"
         placeholder={"Choose a Category"}
         defaultOptions
-        value={selectedValue}
-        getOptionLabel={cat => cat.slug}
-        getOptionValue={cat => cat.slug}
+        value={selectedCategory}
+        getOptionLabel={(cat) => cat.slug}
+        getOptionValue={(cat) => cat.slug}
         loadOptions={fetchData}
         onInputChange={handleInputChange}
         onChange={handleChange}
