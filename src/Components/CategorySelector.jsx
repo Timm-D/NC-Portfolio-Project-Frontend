@@ -26,7 +26,9 @@ const CategorySelector = (props) => {
 
   return (
     <div>
+      <h4>{selectedCategory}</h4>
       <AsyncSelect
+        cacheOptions
         className="categoryDropDown"
         placeholder={"Choose a Category"}
         defaultOptions
