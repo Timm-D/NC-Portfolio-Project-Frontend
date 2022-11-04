@@ -1,11 +1,21 @@
 import axios from "axios";
 
-const baseURL = axios.create({
+export const baseURL = axios.create({
   baseURL: "https://tims-board-games-api.herokuapp.com/api/",
 });
 
-export const getAllReviews = () => {
-  return baseURL.get(`/reviews`).then((res) => {
-    return res.data.reviews
+export const getAllReviews = (category) => {
+  let path = "/reviews";
+  if (category) {
+    path += `?category=${category}`;
+  }
+  return baseURL.get(`${path}`).then((res) => {
+    return res.data.reviews;
+  });
+};
+
+export const getAllCategories = () => {
+  return baseURL.get("/categories").then((res) => {
+    return res.data.categories;
   });
 };
