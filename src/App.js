@@ -13,15 +13,27 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Header />
-        <CategorySelector
+        <Routes>
+          <Route
+            path="/all_reviews/:category"
+            element={<ReviewList reviews={reviews} setReviews={setReviews} />}
+          ></Route>
+          <Route
+            path="/"
+            element={
+              <ReviewList
+                selectedCategory={selectedCategory}
+                reviews={reviews}
+                setReviews={setReviews}
+              />
+            }
+          />
+        </Routes>
+
+        {/* <CategorySelector
           selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
-        />
-        <ReviewList
-          selectedCategory={selectedCategory}
-          reviews={reviews}
-          setReviews={setReviews}
-        />
+          setSelectedCategory={setSelectedCategory} */}
+        {/* /> */}
       </div>
     </BrowserRouter>
   );

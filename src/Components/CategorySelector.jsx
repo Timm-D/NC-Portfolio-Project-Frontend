@@ -1,20 +1,19 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import AsyncSelect from "react-select/async";
-import ReviewList from "./ReviewList";
 import Dropdown from "../utils/DropdownRequest";
+import { useNavigate } from "react-router-dom";
+import CategoryHeader from "./CategoryHeader";
 
 const CategorySelector = (props) => {
   const [category, setCategory] = useState("");
-  const { selectedCategory, setSelectedCategory } = props;
-  const { setReviews } = props;
 
-  const handleInputChange = (value) => {
-    setCategory(value);
-  };
+  const navigate = useNavigate();
 
+ 
   const handleChange = (value) => {
-    setSelectedCategory(value.slug);
+    setCategory(value.slug)
+    navigate(`/all_reviews/${value.slug}`)
   };
 
   const fetchData = () => {
@@ -24,23 +23,20 @@ const CategorySelector = (props) => {
     });
   };
 
-  const makeFirstCap = (str) => {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
+
 
   return (
     <div>
-      <h4>{makeFirstCap(selectedCategory)}</h4>
+      <CategoryHeader category={category}/>
       <AsyncSelect
         cacheOptions
         className="categoryDropDown"
         placeholder={"Choose a Category"}
         defaultOptions
-        value={selectedCategory}
+        value={category}
         getOptionLabel={(cat) => cat.slug}
         getOptionValue={(cat) => cat.slug}
         loadOptions={fetchData}
-        onInputChange={handleInputChange}
         onChange={handleChange}
       />
     </div>
